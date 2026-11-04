@@ -1,0 +1,14 @@
+node_modules
+.gitignore
+/.cache
+build
+.env
+**/.DS_Store
+prisma/schema.prisma
+prisma/migrations/0_init/migration.sql
+app/db.server.ts
+*.icloud
+.react-router
+.vercel
+.playwright-mcp
+.claude/launch.json

@@ -1,0 +1,103 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Geist Variable", sans-serif;
+  --font-display: "Geist Variable", sans-serif;
+  --font-mono: "Geist Mono Variable", monospace;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+@theme {
+  --text-display: clamp(2.5rem, 5vw, 4.5rem);
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.04em;
+  --text-display--font-weight: 500;
+  --text-heading: clamp(1.875rem, 3.4vw, 3rem);
+  --text-heading--line-height: 1.1;
+  --text-heading--letter-spacing: -0.03em;
+  --text-heading--font-weight: 500;
+  --text-subheading: clamp(1.5rem, 2.3vw, 2rem);
+  --text-subheading--line-height: 1.15;
+  --text-subheading--letter-spacing: -0.025em;
+  --text-subheading--font-weight: 500;
+  --text-title: clamp(1.25rem, 1.7vw, 1.5rem);
+  --text-title--line-height: 1.25;
+  --text-title--letter-spacing: -0.02em;
+  --text-title--font-weight: 500;
+}
+
+:root {
+  color-scheme: dark;
+  --radius: 0.5rem;
+  --background: #0c100d;
+  --foreground: #f3f6ea;
+  --card: #161c17;
+  --card-foreground: #f3f6ea;
+  --popover: #161c17;
+  --popover-foreground: #f3f6ea;
+  --primary: #c5dc7a;
+  --primary-foreground: #0c100d;
+  --secondary: #1f2720;
+  --secondary-foreground: #f3f6ea;
+  --muted: #161c17;
+  --muted-foreground: #9ba698;
+  --accent: #1f2720;
+  --accent-foreground: #f3f6ea;
+  --destructive: #f18c8c;
+  --border: #283029;
+  --input: #283029;
+  --ring: #c5dc7a;
+  --flower-accent: #e3e86f;
+  --digit-accent: #3f6a0c;
+}
+
+@utility page-width {
+  width: min(100% - 2.5rem, 78rem);
+  margin-inline: auto;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-padding-top: 2rem;
+  }
+  body {
+    @apply flex min-h-svh flex-col bg-background font-sans text-foreground antialiased;
+  }
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-4 outline-ring;
+  }
+}
+
+html:has(dialog[open]) {
+  overflow: hidden;
+}
